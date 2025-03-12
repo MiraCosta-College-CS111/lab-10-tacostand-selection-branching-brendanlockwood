@@ -2,6 +2,10 @@ public class TacoStand
 {
     /* CONSTANT VARIABLES */
 	public static final String BAR = "----------------------------------------";
+	public static final String CARNEASADA = "Carne Asada (Steak)";
+	public static final String POLLOASADA = "Pollo Asada (Chicken)";
+	public static final String LENGUA = "Lengua (Beef Tongue)";
+	public static final String ULTIMATETACO = "Ultimate Taco";
 
 	/* STATIC VARIABLES */
 	private static int numAsada = 0, numPollo = 0, numLengua = 0, numUltimate = 0;
@@ -71,17 +75,25 @@ public class TacoStand
 	 */
 	public static boolean orderSupplies(double budget)
 	{
-		//tacos cost 75 cents each in supplies, keeping it simple
-	    int tacosEach = (int)(Math.round(budget / 0.75 / 4));
 
-	    TacoStand.totalFunds -= budget;
+		if(budget <= TacoStand.totalFunds){
+			//tacos cost 75 cents each in supplies, keeping it simple
+	    	int tacosEach = (int)(Math.round(budget / 0.75 / 4));
 
-	    TacoStand.numAsada += tacosEach;
-	    TacoStand.numPollo += tacosEach;
-	    TacoStand.numLengua += tacosEach;
-	    TacoStand.numUltimate += tacosEach;
+	    	TacoStand.totalFunds -= budget;
 
-		return true;  //TODO: this is stubbed, replace this line with your actual code!
+	    	TacoStand.numAsada += tacosEach;
+	    	TacoStand.numPollo += tacosEach;
+	    	TacoStand.numLengua += tacosEach;
+	    	TacoStand.numUltimate += tacosEach;
+
+			return true;
+
+		}
+		else{
+			return false;
+		}
+		
 	}
 
 	/**
@@ -93,6 +105,28 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
+		
+		switch(tacoOption){
+			case 1:
+			TacoStand.totalFunds += (2.50 * numTacos);
+			TacoStand.numAsada -= numTacos;
+			break;
+
+			case 2:
+			TacoStand.totalFunds += (1.75 * numTacos);
+			TacoStand.numPollo -= numTacos;
+			break;
+
+			case 3:
+			TacoStand.totalFunds += (3.00 * numTacos);
+			TacoStand.numLengua -= numTacos;
+			break;
+
+			case 4:
+			TacoStand.totalFunds += (18.00 * numTacos);
+			TacoStand.numUltimate -= numTacos;
+			break;
+		}
 		//TODO: this is stubbed, replace this line with your actual code!
 	}
 	
@@ -107,6 +141,28 @@ public class TacoStand
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
 	{
+		switch(tacoOption)
+
+		case 1:
+		if (TacoStand.numAsada < numTacos)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+		case 2:
+		if (TacoStand.numPollo < numTacos)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
 		return false; //TODO: this is stubbed, replace this line with your actual code!
 	}
 }
