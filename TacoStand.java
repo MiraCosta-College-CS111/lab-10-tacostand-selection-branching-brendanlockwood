@@ -127,7 +127,6 @@ public class TacoStand
 			TacoStand.numUltimate -= numTacos;
 			break;
 		}
-		//TODO: this is stubbed, replace this line with your actual code!
 	}
 	
 	
@@ -141,7 +140,7 @@ public class TacoStand
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
 	{
-		switch(tacoOption)
+		switch(tacoOption){
 
 		case 1:
 		if (TacoStand.numAsada < numTacos)
@@ -163,6 +162,8 @@ public class TacoStand
 			return true;
 		}
 
-		return false; //TODO: this is stubbed, replace this line with your actual code!
+		default:
+		return false; 
+		}
 	}
 }
