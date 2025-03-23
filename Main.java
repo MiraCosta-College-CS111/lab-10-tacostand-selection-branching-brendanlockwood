@@ -83,9 +83,24 @@ public class Main
 	 * 
 	 * @param numTacos
 	 */
-	public static void printConfirmation(int numTacos) //TODO: upgrade per documentation
-	{
-		System.out.println("Here you go, buen provecho!");
-		System.out.println("🌮");
+	public static void printConfirmation(int numTacos){
+	if (numTacos <= 0) {
+        System.out.println("Hmm... no tacos? Let me know if you change your mind!");
+        return;
+    }
+
+    if (numTacos == 1) {
+        System.out.println("Here is your taco, buen provecho! 🌮");
+    } else if (numTacos < 10) {
+        System.out.println("Here are your " + numTacos + " tacos, buen provecho!");
+    } else {
+        System.out.println("Wow! " + numTacos + " tacos! You must be hungry! Enjoy! 🌮🔥");
+    }
+
+    // Print taco emoji as many times as the number of tacos ordered
+    for (int i = 0; i < numTacos; i++) {
+        System.out.print("🌮 ");
+    }
+    System.out.println(); // Move to new line after printing emojis
 	}
 }
