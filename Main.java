@@ -74,7 +74,7 @@ public class Main
 		} 
 		else {
 			// If tacos are unavailable, print an error message
-			System.out.println("Sorry, we don’t have enough tacos for your order.");
+			System.out.println("We don't have that many tacos, sorry! Try again :(");
 		}
 	}
 
@@ -90,17 +90,16 @@ public class Main
     }
 
     if (numTacos == 1) {
-        System.out.println("Here is your taco, buen provecho! 🌮");
-    } else if (numTacos < 10) {
-        System.out.println("Here are your " + numTacos + " tacos, buen provecho!");
-    } else {
-        System.out.println("Wow! " + numTacos + " tacos! You must be hungry! Enjoy! 🌮🔥");
+        System.out.println("Here is your taco, buen provecho!");
+    } 
+	else if (numTacos < 10) {
+        System.out.println("Here you go, buen provecho!");
     }
 
     // Print taco emoji as many times as the number of tacos ordered
     for (int i = 0; i < numTacos; i++) {
-        System.out.print("🌮 ");
+        System.out.print("🌮");
     }
-    System.out.println(); // Move to new line after printing emojis
+    System.out.println("\n"); // Move to new line after printing emojis
 	}
 }
